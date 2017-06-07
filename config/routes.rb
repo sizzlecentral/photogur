@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   post 'pictures' => 'pictures#create'
   patch 'pictures/:id' => "pictures#update"
-
-
+  delete 'pictures/:id' => 'pictures#destroy'
 
 end
