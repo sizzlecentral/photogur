@@ -8,15 +8,7 @@
 
     <div class="cards-list">
         <% @pictures.each do |picture| %>
-            <div class="card">
-                <div class="image-wrap">
-                    <%= link_to image_tag(picture.url), "/pictures/#{picture.id}" %>
-                </div>
-                <h5><%= picture.artist %></h5>
-                <p><%= picture.title %></p>
-
-                <a href="javascript:void(0)" class="active-state-trigger button button-primary">Add to Deck</a>
-            </div>
+          <%= render 'pictures/picture', picture: picture %>
         <% end %>
     </div>
 </section>
