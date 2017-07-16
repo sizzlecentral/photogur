@@ -15,6 +15,22 @@ class PicturesController < ApplicationController
   def create
     # make a new picture with what picture_params returns (which is a method we're calling)
     @picture = Picture.new(picture_params)
+    if request.xhr?
+      respond_to do |format|
+
+        format.html do
+          if @picture.save
+            redirect_to pictures_url
+          else
+            render :new
+          end
+        end
+
+        format.js
+        
+      end
+    end
+
     if @picture.save
       # if the save for the picture was successful, go to index.html.erb
       redirect_to pictures_url

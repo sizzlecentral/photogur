@@ -1,0 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+  var form = document.querySelector('.new_picture');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    var cardList = document.querySelector('.cards-list');
+    var newCard = document.createElement('div');
+    newCard.innerHTML = '<%= j render 'picture' %>';
+    @cardList.appendChild(newCard);
+  });
+});
