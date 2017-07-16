@@ -10,10 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
       var parentCard = button.parentElement;
       if (parentCard.classList.contains('active')) {
         parentCard.classList.remove('active');
+        button.innerText = 'Add to deck';
         count--;
-      } else {
+      } else if (count < 5) {
         parentCard.classList.add('active');
+        button.innerText = 'Remove from deck';
         count++;
+      } else {
+        alert('You have reached your maximum number of cards.  Please remove one of your cards from the deck to add a new one.')
       }
       deckCount.innerHTML = count;
     });
